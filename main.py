@@ -28,6 +28,8 @@ def run_tests(func):
     assert func([8, 2, 3, -2]) == 2
     assert func([2, 0]) == 0
     assert func([8, -2, 3, 2]) == 2
+    assert func([1, 4, 5, 8]) == 1
+    assert func([8, 5, 4, 1]) == 1
 
 
 if __name__ == '__main__':
