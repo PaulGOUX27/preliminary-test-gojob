@@ -17,14 +17,6 @@ def closest_to_zero(values):
     return closest_value
 
 
-def closest_to_zero_stackoverflow(values):
-    # https://stackoverflow.com/questions/11923657/python-find-integer-closest-to-0-in-list
-    # It doesn't return the positive value in case of equal distance between a positive and negative value
-    if not values or values is None:
-        return 0
-    return min(values, key=abs)
-
-
 def run_tests(func):
     assert func([]) == 0
     assert func(None) == 0
@@ -40,6 +32,5 @@ def run_tests(func):
 
 if __name__ == '__main__':
     run_tests(closest_to_zero)
-    # run_tests(closest_to_zero_stackoverflow)
 
     print('All tests succeed')
