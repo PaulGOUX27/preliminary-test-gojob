@@ -19,31 +19,27 @@ def closest_to_zero(values):
 
 def closest_to_zero_stackoverflow(values):
     # https://stackoverflow.com/questions/11923657/python-find-integer-closest-to-0-in-list
+    # It doesn't return the positive value in case of equal distance between a positive and negative value
     if not values or values is None:
         return 0
     return min(values, key=abs)
 
 
-if __name__ == '__main__':
-    assert closest_to_zero([]) == 0
-    assert closest_to_zero(None) == 0
-    assert closest_to_zero([1]) == 1
-    assert closest_to_zero([-6]) == -6
-    assert closest_to_zero([3, -4, 0]) == 0
-    assert closest_to_zero([8, 5, 10]) == 5
-    assert closest_to_zero([5, 4, -9, 6, -10, -1, 8]) == -1
-    assert closest_to_zero([8, 2, 3, -2]) == 2
-    assert closest_to_zero([2, 0]) == 0
-    assert closest_to_zero([8, -2, 3, 2]) == 2
+def run_tests(func):
+    assert func([]) == 0
+    assert func(None) == 0
+    assert func([1]) == 1
+    assert func([-6]) == -6
+    assert func([3, -4, 0]) == 0
+    assert func([8, 5, 10]) == 5
+    assert func([5, 4, -9, 6, -10, -1, 8]) == -1
+    assert func([8, 2, 3, -2]) == 2
+    assert func([2, 0]) == 0
+    assert func([8, -2, 3, 2]) == 2
 
-    assert closest_to_zero_stackoverflow([]) == 0
-    assert closest_to_zero_stackoverflow(None) == 0
-    assert closest_to_zero_stackoverflow([1]) == 1
-    assert closest_to_zero_stackoverflow([-6]) == -6
-    assert closest_to_zero_stackoverflow([3, -4, 0]) == 0
-    assert closest_to_zero_stackoverflow([8, 5, 10]) == 5
-    assert closest_to_zero_stackoverflow([5, 4, -9, 6, -10, -1, 8]) == -1
-    assert closest_to_zero_stackoverflow([8, 2, 3, -2]) == 2
-    assert closest_to_zero_stackoverflow([2, 0]) == 0
+
+if __name__ == '__main__':
+    run_tests(closest_to_zero)
+    # run_tests(closest_to_zero_stackoverflow)
 
     print('All tests succeed')
